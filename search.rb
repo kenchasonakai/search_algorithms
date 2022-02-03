@@ -85,38 +85,35 @@ class Mikawa
   end
 
   def is_asked?(constellation, sex)
-    sleep(0.5)
     boolean = constellation.eql?(self.constellation) && sex.eql?(self.sex)
     self.sing_comfortably_status = boolean ? response_true : response_false
   end
 
   def is_sex?(sex)
-    sleep(0.5)
     sex.eql?(self.sex) ? response_true : response_false
   end
 
   def is_constellation?(constellation)
-    sleep(0.5)
     constellation.eql?(self.constellation) ? response_true : response_false
   end
 
   def is_greater_constellation?(mid_constellation)
-    sleep(0.5)
     self.constellation > mid_constellation ? response_true : response_false
   end
 
   def is_greater_sex?(mid_sex)
-    sleep(0.5)
     self.sex > mid_sex ? response_true : response_false
   end
 
   def response_true
+    sleep(0.5)
     puts "(頷く)"
     sleep(0.5)
     true
   end
 
   def response_false
+    sleep(0.5)
     puts "(首を振る)"
     sleep(0.5)
     false
@@ -139,6 +136,7 @@ class Mikawa
       mid_num = (min_num + max_num) / 2
       mid_constellation = sorted_constellation_array[mid_num]
     end
+    mid_constellation
   end
 
   def binary_search_sex
@@ -157,10 +155,11 @@ class Mikawa
       mid_num = (min_num + max_num) / 2
       mid_sex = sorted_sex_array[mid_num]
     end
+    mid_sex
   end
 end
 
-Mikawa.new.exec("random_search")
-Mikawa.new.exec("exhaustive_seach")
-Mikawa.new.exec("sequential_search")
+# Mikawa.new.exec("random_search")
+# Mikawa.new.exec("exhaustive_seach")
+# Mikawa.new.exec("sequential_search")
 Mikawa.new.exec("binary_search")
